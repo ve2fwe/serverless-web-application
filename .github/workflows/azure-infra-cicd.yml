@@ -77,7 +77,7 @@ jobs:
     - name: Deploy ${{ env.ENVIRONMENT_TYPE }} environment infrastructure to ${{ env.RESOURCE_GROUP_NAME }}
       id: infraDeployment
       uses: azure/arm-deploy@v1
-      with:
+     with:
         deploymentName: ${{ github.run_number }}
         resourceGroupName: ${{ env.RESOURCE_GROUP_NAME }}
         template: ./${{ env.BICEP_FILE_PATH }}/${{ env.BICEP_FILE_NAME }}.json  # Set this to the location of your template file
