@@ -10,7 +10,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   tags: resourceTags
   sku: {
     name: 'Standard_LRS'
-    tier: 'Standard'
+    //tier: 'Standard'
   }
   kind: 'StorageV2'
   properties: {

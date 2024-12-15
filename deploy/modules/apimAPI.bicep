@@ -5,6 +5,7 @@ param apiName string
 param originUrl string
 
 var functionAppKeyName = '${backendApiName}-key'
+var audiencesUri = environment().authentication.audiences
 
 resource backendApiApp 'Microsoft.Web/sites@2021-01-15' existing = {
   name: backendApiName
