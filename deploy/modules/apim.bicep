@@ -19,8 +19,8 @@ param sku string = 'Developer'
 param skuCount int = 1
 
 var location = resourceGroup().location
-var publisherEmail = 'email@domain.com'
-var publisherName = 'Your Company'
+var publisherEmail = 've2fwe@gmail.com'
+var publisherName = 've2fwe'
 
 resource apiManagement 'Microsoft.ApiManagement/service@2021-01-01-preview' = {
   name: apimName
