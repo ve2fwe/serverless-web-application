@@ -36,6 +36,15 @@ param userAssignedIdentityResourceGroup string = resourceGroup().name
 @description('API friendly name')
 param apimApiName string = '2do'
 
+@description('See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
+param tagsArray object
+
+@description('Source of Azure Resource Manager deployment')
+param requestSource string
+
+@description('Log Analytics workspace ID to associate with your Application Insights resource.')
+param workspaceResourceId string
+
 param resourceTags object = {
   ProjectType: 'Azure Serverless Web'
   Purpose: 'Demo'
@@ -65,14 +74,27 @@ resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@
   scope: resourceGroup(userAssignedIdentityResourceGroup)
 }
 
-resource appInsights 'Microsoft.Insights/components@2018-05-01-preview' = {
+// resource appInsights 'Microsoft.Insights/components@2018-05-01-preview' = {
+//   name: appInsightsName
+//   location: location
+//   kind: 'web'
+//   properties: {
+//     Application_Type: 'web'
+//     publicNetworkAccessForIngestion: 'Enabled'
+//     publicNetworkAccessForQuery: 'Enabled'
+//   }
+// }
+
+resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: appInsightsName
   location: location
+  tags: tagsArray
   kind: 'web'
   properties: {
     Application_Type: 'web'
-    publicNetworkAccessForIngestion: 'Enabled'
-    publicNetworkAccessForQuery: 'Enabled'
+    Flow_Type: 'Bluefield'
+    Request_Source: requestSource
+    WorkspaceResourceId: workspaceResourceId
   }
 }
 
