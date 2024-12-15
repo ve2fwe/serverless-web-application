@@ -17,15 +17,15 @@ on:
       RESOURCE_GROUP_NAME: 
         description: 'Resource Group to deploy Azure resources'
         required: true
-        default: 'swa-rg'
+        default: 'swa-dev-rg'
       MSI_NAME: 
         description: 'User Managed Identity'
         required: true
-        default: 'swa-msi'
+        default: 'swa-dev-msi'
       MSI_RESOURCE_GROUP: 
         description: 'Resource Group where User Managed Identity is located'
         required: true
-        default: 'swa-rg'
+        default: 'swa-dev-rg'
   
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
