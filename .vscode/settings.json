@@ -4,5 +4,6 @@
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
     "azureFunctions.preDeployTask": "publish (functions)",
-    "azureFunctions.projectSubpath": "src\\api\\dotnet\\ToDoFunctionApp"
+    "azureFunctions.projectSubpath": "src\\api\\dotnet\\ToDoFunctionApp",
+    "azureAutomation.directory.basePath": "c:\\Users\\jft"
 }
